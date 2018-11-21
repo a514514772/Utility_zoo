@@ -16,13 +16,12 @@ args = parser.parse_args()
 
 def main():
 	fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-	video = cv2.VideoWriter(args.output_path, fourcc, 1, (args.width, args.height))
+	video = cv2.VideoWriter(args.output_path, fourcc, 6, (args.width, args.height))
 	#print (args.img_list)
 	img_fname = [fn.strip() for fn in open(args.img_list, 'r')]
 	#print (img_fname)
 	for fname in img_fname:
 		img = cv2.imread(fname)
-		print (img.shape)
 		video.write(img)
 
 	video.release()
