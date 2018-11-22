@@ -24,6 +24,8 @@ def main():
 	#print (img_fname)
 	for fname in img_fname:
 		img = cv2.imread(fname)
+		if (img.shape[0], img.shape[1]) != (args.height, args.width):
+			img = cv2.resize(img, (args.width, args.height))
 		video.write(img)
 
 	video.release()
